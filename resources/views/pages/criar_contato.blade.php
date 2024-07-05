@@ -1,8 +1,8 @@
 @extends('default')
 @section('content')
     <div class="container">
-        @if(!empty($message))
-            <div class="alert">{{$message}}</div>
+        @if(!empty(session('message')))
+            <div class="alert alert-danger">{{session('message')}}</div>
         @endif
         <form data-form-contato="" id="{{ !empty($contato) ? 'form-editar-contato' : 'form-criar-contato' }}" action="{{ !empty($contato) ? route('alterar_contato') : route('criar_contato') }}" method="POST" >
             @csrf
@@ -19,6 +19,7 @@
                 <input name="idContato" type="hidden" value="{{$contato->id}}"/>
             @endif
             <button type="submit" class="btn btn-primary">@if(!empty($contato)) Editar @else Criar @endif</button>
+            <button type="button" data-lista class="btn btn-success">Lista</button>
         </form>
     </div>
 @endsection

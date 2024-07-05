@@ -18,3 +18,11 @@ $("[data-alterar-contato]").on("click", function () {
     const idContato = $(this).data("alterar-contato");
     window.location.href = `/editar-contato?idContato=${idContato}`;
 })
+
+$("[data-lista]").on("click", function () {
+    window.location.href = `/lista-contato`;
+})
+
+$("[data-criar]").on("click", function () {
+    window.location.href = `/`;
+})
